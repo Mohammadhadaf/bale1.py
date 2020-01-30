@@ -1,0 +1,18 @@
+import logging
+from telegram.ext import Updater,CommandHandler,MessageHandler,Filters
+class Mybot():
+    def __init__(self):
+      pass
+    def start(self,bot,update):
+     bot.send_message(text="salammamali",chat_id=update.message.chat_id)
+
+    def main(self):
+        updater=Updater("1037483401:AAGfg5vd5_PTB3uZXgcXijjUIaGkymaaUpg")
+        #updater = Updater(token="1348015428:cfbf844d785e6fa8063ecfc76d8f459930c1d175",base_url="https://tapi.bale.ai/")
+        updater.dispatcher.add_handler(CommandHandler('start',self.start))
+        updater.start_polling()
+        updater.idle()
+        
+
+bot=Mybot()
+bot.main()
